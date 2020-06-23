@@ -27,6 +27,19 @@ function filter_function_name_4326( $sep ){
 	return $sep;
 }
 
+add_action( 'widgets_init', 'action_function_name_7868' );
+function action_function_name_7868(){
+	register_sidebar( array(
+		'name'          => 'Sidebar',
+		'id'            => "sidebar",
+		'description'   => 'Описание сайдбара',
+		'before_widget' => '<div class="widget %2$s">',
+		'after_widget'  => "</div>\n",
+		'before_title'  => '<h2 class="widgettitle">',
+		'after_title'   => "</h5>\n",
+	) );
+}
+
 function my_wp_head ()
 {
 	wp_enqueue_style('style', get_stylesheet_uri());
