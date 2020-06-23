@@ -8,7 +8,7 @@
 			</div>
 
 			<div class="card-body">
-				<p class="card-text"><? the_excerpt(); ?></p>
+				<p class="card-text"><? the_content(); ?></p>
 			</div>
 
 		</div>
