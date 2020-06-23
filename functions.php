@@ -16,7 +16,9 @@ add_action('after_setup_theme', 'different');
 function different ()
 {
 	add_theme_support('title-tag'); //выводит title страницы автоматически
-	add_theme_support('post-thumbnails', array('post')); // минеатюру в post
+	add_theme_support('post-thumbnails', ['post']); // минеатюру в post
+	add_theme_support('custom-logo', ['width' => '150', 'height' => '40']);
+	add_theme_support('custom-background', ['default-color' => 'wight']);
 
 }
 

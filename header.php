@@ -13,22 +13,25 @@
 <header>
 
 
-    <div class="twelve columns row">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-        <a href="<?=home_url() ?>">
-            <img style="width: 50px" src="https://logotab.ru/storage/logotypes/491/krylya.jpg">
-        </a>
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <?wp_nav_menu([
+        <?if(has_custom_logo()): the_custom_logo();?>
+        <?else:?>
+            <a href="<?=home_url() ?>">
+		        <? bloginfo('name'); ?>
+            </a>
+        <?endif;?>
+        <div class="align-content-end">
+            <?wp_nav_menu([
                     'theme_location'  => 'header_menu',
                     'container_class' => 'collapse navbar-collapse',
                     'container_id'         => '',
                     'menu_class'      => 'navbar-nav',
                     'menu_id'         => '',
-                ]); ?>
-        </nav>
+            ]); ?>
+        </div>
+    </nav>
 
 
 </header> <!-- Header End -->
-<body>
+<body <? body_class(); ?>>
