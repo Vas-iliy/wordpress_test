@@ -16,6 +16,8 @@ add_action('after_setup_theme', 'different');
 function different ()
 {
 	add_theme_support('title-tag'); //выводит title страницы автоматически
+	add_theme_support('post-thumbnails', array('post')); // минеатюру в post
+
 }
 
 add_filter( 'document_title_separator', 'filter_function_name_4326' );

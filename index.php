@@ -1,7 +1,5 @@
 <? get_header(); ?>
 
-<h1>Hello, world!</h1>
-
 <? if (have_posts()): while (have_posts()): the_post(); ?>
     <div class="col-md-12">
         <div class="card">
@@ -10,6 +8,10 @@
             </div>
 
             <div class="card-body">
+                <?if (has_post_thumbnail()):
+                    the_post_thumbnail(); else:?>
+                        <img src="https://picsum.photos/1275/638" alt="">
+                <?endif;?>
                 <p class="card-text"><? the_excerpt(); ?></p>
             </div>
 

@@ -8,6 +8,10 @@
 			</div>
 
 			<div class="card-body">
+				<?if (has_post_thumbnail()):
+					the_post_thumbnail(); else:?>
+                    <img src="https://picsum.photos/1275/638" alt="">
+				<?endif;?>
 				<p class="card-text"><? the_content(); ?></p>
 			</div>
 
