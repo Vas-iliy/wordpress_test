@@ -30,7 +30,7 @@
                     'menu_class'      => 'navbar-nav',
                     'menu_id'         => '',
             ]); ?>
-            <p class="phone <?if(get_theme_mod('show_phone') === false) echo 'style="display: none;"'?>">
+            <p class="phone" <?if(get_theme_mod('show_phone') === false) echo ' style="display: none;"'?>>
                 Телефон: <span><?=get_theme_mod('phone');?></span>
             </p>
         </div>

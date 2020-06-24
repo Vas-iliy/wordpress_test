@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <a href="<? the_permalink(); ?>" class="btn btn-primary">Читать далее</a>
+                        <a href="<? the_permalink(); ?>" class="btn btn-primary"><?_e('Читать далее', 'test')?></a>
                     </div>
                 </div>
             </div>
@@ -30,13 +30,12 @@
         <? the_posts_pagination([
 			    'end_size'     => 1,
 			    'mid_size'     => 1,
-			    'prev_text'    => __('« Previous'),
-			    'next_text'    => __('Next »'),
 		    ]); ?>
+        <?else:?>
+            <p>Постов нет...</p>
 	    <?endif;?>
+
     </div>
-
-
 	    <? get_sidebar(); ?>
     </div>
 

@@ -6,8 +6,8 @@ add_action('wp_enqueue_scripts', 'my_wp_footer' ); // хук автоматом 
 
 add_action( 'after_setup_theme', function(){
 	register_nav_menus( [
-		'header_menu' => 'Меню в шапке',
-		'footer_menu' => 'Меню в подвале'
+		'header_menu' => __('Меню в шапке', 'test'),
+		'footer_menu' => __('Меню в подвале', 'test')
 	] );
 } );
 
@@ -15,6 +15,7 @@ add_action('after_setup_theme', 'different');
 
 function different ()
 {
+	load_theme_textdomain('test', get_template_directory() . '/languages');
 	add_theme_support('title-tag'); //выводит title страницы автоматически
 	add_theme_support('post-thumbnails', ['post']); // минеатюру в post
 	add_image_size('anime', 150, 150, true);
@@ -66,9 +67,9 @@ the_posts_pagination( array(
 add_action( 'widgets_init', 'action_function_name_7868' );
 function action_function_name_7868(){
 	register_sidebar( array(
-		'name'          => 'Sidebar',
+		'name'          => __('Сайдбар', 'test'),
 		'id'            => "sidebar",
-		'description'   => 'Описание сайдбара',
+		'description'   => __('Описание сайдбара', 'test'),
 		'before_widget' => '<div class="widget %2$s">',
 		'after_widget'  => "</div>\n",
 		'before_title'  => '<h2 class="widgettitle">',
@@ -110,7 +111,7 @@ function my_theme_customize_register($wp_customize ) {
 			$wp_customize,
 			'link_color',
 			[
-				'label' => 'Цвет ссылок',
+				'label' => __('Цвет ссылок', 'test'),
 				'section' => 'colors',
 				'setting' => 'link_color'
 			]
@@ -121,7 +122,7 @@ function my_theme_customize_register($wp_customize ) {
 	 * custom section
 	 */
 	$wp_customize->add_section('site_data', [
-		'title' => 'Информация сайта',
+		'title' => __('Информация сайта', 'test'),
 		'priority' => 20,
 	]);
 	$wp_customize->add_setting('phone', [
@@ -131,7 +132,7 @@ function my_theme_customize_register($wp_customize ) {
 	$wp_customize->add_control(
 			'phone',
 			[
-				'label' => 'Телефон',
+				'label' => __('Телефон', 'test'),
 				'section' => 'site_data',
 				'setting' => 'text'
 			]
@@ -144,7 +145,7 @@ function my_theme_customize_register($wp_customize ) {
 	$wp_customize->add_control(
 		'show_phone',
 		array(
-			'label' => 'Показывать телефон',
+			'label' => __('Показывать телефон', 'test'),
 			'section' => 'site_data',
 			'type' => 'checkbox',
 		)
