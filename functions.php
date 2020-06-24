@@ -101,7 +101,8 @@ function my_theme_customize_register($wp_customize ) {
 	// Здесь делаем что-либо с $wp_customize - объектом класса WP_Customize_Manager, например
 	$wp_customize->add_setting('link_color', [
 		'default' => '#007bff',
-		'sanitize_callback' => 'sanitize_hex_color'
+		'sanitize_callback' => 'sanitize_hex_color',
+		'transport'=>'postMessage'
 	]);
 
 	$wp_customize->add_control(
@@ -115,17 +116,26 @@ function my_theme_customize_register($wp_customize ) {
 			]
 		)
 	);
-	// Действия с панелями
-//	$wp_customize->add_panel();     // добавить панель
 
-	// Действия с секциями
-//	$wp_customize->add_section();    // добавить секцию
-
-	// Действия с настройками
-//	$wp_customize->add_setting();    // добавить настройку
-
-	// Действия с элементами управления
-//	$wp_customize->add_control();    // добавить элемент управления
+	/**
+	 * custom section
+	 */
+	$wp_customize->add_section('site_data', [
+		'title' => 'Информация сайта',
+		'priority' => 20,
+	]);
+	$wp_customize->add_setting('phone', [
+		'default' => '',
+		'transport'=>'postMessage'
+	]);
+	$wp_customize->add_control(
+			'phone',
+			[
+				'label' => 'Телефон',
+				'section' => 'site_data',
+				'setting' => 'text'
+			]
+	);
 }
 add_action('wp_head', 'customize_css');
 function customize_css ()
