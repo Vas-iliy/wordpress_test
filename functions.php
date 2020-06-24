@@ -136,6 +136,19 @@ function my_theme_customize_register($wp_customize ) {
 				'setting' => 'text'
 			]
 	);
+
+	$wp_customize->add_setting('show_phone', array(
+		'default' => true,
+		'transport'=> 'postMessage',
+	));
+	$wp_customize->add_control(
+		'show_phone',
+		array(
+			'label' => 'Показывать телефон',
+			'section' => 'site_data',
+			'type' => 'checkbox',
+		)
+	);
 }
 add_action('wp_head', 'customize_css');
 function customize_css ()
