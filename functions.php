@@ -138,3 +138,9 @@ a {color: $link_color;}
 HEREDOC;
 
 }
+
+add_action('customize_preview_init', 'customize_js');
+function customize_js(){
+	wp_enqueue_script('test-customizer', get_template_directory_uri() . '/assets/js/customize.js', array( 'jquery','customize-preview' ),	'', true);
+}
+
