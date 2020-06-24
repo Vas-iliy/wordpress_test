@@ -40,6 +40,29 @@ function filter_function_name_4326( $sep ){
 	return $sep;
 }
 
+// удаляет H2 из шаблона пагинации
+add_filter('navigation_markup_template', 'my_navigation_template', 10, 2 );
+function my_navigation_template( $template, $class ){
+	/*
+	Вид базового шаблона:
+	<nav class="navigation %1$s" role="navigation">
+		<h2 class="screen-reader-text">%2$s</h2>
+		<div class="nav-links">%3$s</div>
+	</nav>
+	*/
+
+	return '
+	<nav class="navigation %1$s" role="navigation">
+		<div class="nav-links">%3$s</div>
+	</nav>    
+	';
+}
+
+// выводим пагинацию
+the_posts_pagination( array(
+	'end_size' => 2,
+) );
+
 add_action( 'widgets_init', 'action_function_name_7868' );
 function action_function_name_7868(){
 	register_sidebar( array(
