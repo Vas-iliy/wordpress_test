@@ -31,7 +31,6 @@ function different ()
 		'width' => '2000',
 		'height' => '1300'
 	]);
-
 }
 
 add_filter( 'document_title_separator', 'filter_function_name_4326' );
@@ -73,3 +72,46 @@ function my_wp_footer ()
 
 }
 
+
+add_action( 'customize_register', 'my_theme_customize_register' );
+function my_theme_customize_register($wp_customize ) {
+	// Здесь делаем что-либо с $wp_customize - объектом класса WP_Customize_Manager, например
+	$wp_customize->add_setting('link_color', [
+		'default' => '#007bff',
+		'sanitize_callback' => 'sanitize_hex_color'
+	]);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'link_color',
+			[
+				'label' => 'Цвет ссылок',
+				'section' => 'colors',
+				'setting' => 'link_color'
+			]
+		)
+	);
+	// Действия с панелями
+//	$wp_customize->add_panel();     // добавить панель
+
+	// Действия с секциями
+//	$wp_customize->add_section();    // добавить секцию
+
+	// Действия с настройками
+//	$wp_customize->add_setting();    // добавить настройку
+
+	// Действия с элементами управления
+//	$wp_customize->add_control();    // добавить элемент управления
+}
+add_action('wp_head', 'customize_css');
+function customize_css ()
+{
+	$link_color = get_theme_mod('link_color');
+	echo <<<HEREDOC
+<style type="text/css">
+a {color: $link_color;}
+</style>
+HEREDOC;
+
+}
