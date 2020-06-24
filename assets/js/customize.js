@@ -6,4 +6,10 @@
         } );
     } );
 
+    wp.customize( 'phone', function( value ) {
+        value.bind( function( newval ) {
+            $('.phone span').text(newval);
+        } );
+    } );
+
 })(jQuery);

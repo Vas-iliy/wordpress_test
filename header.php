@@ -23,14 +23,16 @@
 		        <? bloginfo('name'); ?>
             </a>
         <?endif;?>
-        <div class="align-content-end">
+        <div class="collapse navbar-collapse">
             <?wp_nav_menu([
                     'theme_location'  => 'header_menu',
-                    'container_class' => 'collapse navbar-collapse',
-                    'container_id'         => '',
+                    'container' => '',
                     'menu_class'      => 'navbar-nav',
                     'menu_id'         => '',
             ]); ?>
+            <p class="phone">
+                Телефон: <span><?=get_theme_mod('phone');?></span>
+            </p>
         </div>
     </nav>
 
