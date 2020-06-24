@@ -12,8 +12,9 @@
 
                         <div class="card-body">
 					        <?if (has_post_thumbnail()):
-						        the_post_thumbnail(); else:?>
-                                <img src="https://picsum.photos/1275/638" alt="">
+						        the_post_thumbnail('anime', ['class' => 'float-left mr-3']);
+					        else:?>
+                                <img src="https://picsum.photos/150/150" width="150px" height="150px" alt="" class="float-left mr-3">
 					        <?endif;?>
                             <p class="card-text"><? the_excerpt(); ?></p>
                         </div>

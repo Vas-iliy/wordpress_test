@@ -11,7 +11,9 @@
 </head>
 
 <header>
-
+    <?if(is_front_page()):?>
+        <div class="header-image" style="background: url(<? header_image(); ?>) center no-repeat; background-size: cover; height: 50vh;"></div>
+    <?endif;?>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 

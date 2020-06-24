@@ -17,8 +17,20 @@ function different ()
 {
 	add_theme_support('title-tag'); //выводит title страницы автоматически
 	add_theme_support('post-thumbnails', ['post']); // минеатюру в post
-	add_theme_support('custom-logo', ['width' => '150', 'height' => '40']);
-	add_theme_support('custom-background', ['default-color' => 'wight']);
+	add_image_size('anime', 150, 150, true);
+	add_theme_support('custom-logo', [
+		'width' => '150',
+		'height' => '40'
+	]);
+	add_theme_support('custom-background', [
+		'default-color' => 'wight',
+		'default-image' => get_template_directory_uri() . '/assets/images/background.jpg'
+	]);
+	add_theme_support('custom-header', [
+		'default-image' => get_template_directory_uri() . '/assets/images/header.jpg',
+		'width' => '2000',
+		'height' => '1300'
+	]);
 
 }
 
