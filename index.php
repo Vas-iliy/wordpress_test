@@ -28,7 +28,7 @@
             </div>
 	    <?endwhile;?>
         <? the_posts_pagination([
-			    'end_size'     => 1,
+			    'end_size'     => 2,
 			    'mid_size'     => 1,
 		    ]); ?>
         <?else:?>
@@ -38,6 +38,19 @@
     </div>
 	    <? get_sidebar(); ?>
     </div>
+
+	<?$query = new WP_Query(array(
+		'cat' => '6,15',
+		'posts_per_page' => '-1',
+        'orderby' => 'title',
+        'order' => 'ASC'
+	));?>
+
+	<? if ($query->have_posts()): while ($query->have_posts()): $query->the_post(); ?>
+        <h3><? the_title() ?></h3>
+	<?endwhile;?>
+	<?endif;?>
+    <? wp_reset_postdata(); ?>
 
 </div>
 
